@@ -1,0 +1,4 @@
+<div class="input-button">
+  <input [formControl]="inputField" id="inputId" type="text" placeholder="Add an item!" >
+  <button [disabled]="inputField.invalid" (click)="extractInputValue()" class="add-button">Add Todo</button>
+</div>

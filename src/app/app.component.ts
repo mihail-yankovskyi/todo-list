@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IToDoItem } from './interfaces/IToDoItem';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'input-second-try';
+  toDoTasks: IToDoItem[] = [];
+  try: any[] = [];
+  idForMas: number = 0;
+
+  onAddToDo(input: string): void {
+    this.idForMas++;
+    this.toDoTasks.push({ id: this.idForMas, text: input, isDone: false });
+
+    console.log(this.toDoTasks);
+  }
 }
