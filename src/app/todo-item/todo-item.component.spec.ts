@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToDoComponentComponent } from './to-do-component.component';
+import { ValueListComponent } from './todo-item.component';
 
-describe('ToDoComponentComponent', () => {
-  let component: ToDoComponentComponent;
-  let fixture: ComponentFixture<ToDoComponentComponent>;
+describe('ValueListComponent', () => {
+  let component: ValueListComponent;
+  let fixture: ComponentFixture<ValueListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToDoComponentComponent ]
+      declarations: [ ValueListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToDoComponentComponent);
+    fixture = TestBed.createComponent(ValueListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

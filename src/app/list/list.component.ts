@@ -7,8 +7,8 @@ import { IToDoItem } from '../interfaces/IToDoItem';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
   @Input() data!: IToDoItem[];
+  // @Output
 
   constructor() { }
 

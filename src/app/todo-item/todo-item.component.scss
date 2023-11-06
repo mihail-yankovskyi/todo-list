@@ -1,3 +1,13 @@
+.content {
+  .input-value {
+    font-size: larger;
+    display: flex;
+    .text-val {
+      margin-left: 10px;
+    }
+  }
+}
+
 .buttons {
   display: flex;
 
@@ -32,3 +42,4 @@
 .doneFStyle {
   text-decoration: line-through;
 }
+
