@@ -16,5 +16,6 @@ export class InputComponent implements OnInit {
 
   extractInputValue(): void {
     this.addToDo.emit(this.inputField.value);
+    this.inputField?.setValue('');
   }
 }

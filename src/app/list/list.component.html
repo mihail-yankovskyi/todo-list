@@ -1,9 +1,11 @@
-<ul>
-  <div
-    *ngFor="let val of data; index as i"
-    style="display: inline-block;"
-  >
+<ul *ngFor="let toDoItem of toDoItems; index as i">
+  <div style="display: inline-block;">
     <span>{{ i + 1 }}. </span>
-    <todo-item [dataValue]="val" style="display: inline-block;"></todo-item>
+    <todo-item style="display: inline-block;"
+      [toDoItem]="toDoItem"
+      (onDone)="done($event)"
+      (onDelete)="deleteItem($event)"
+      (onChange)="changeItem($event)"
+    ></todo-item>
   </div>
 </ul>

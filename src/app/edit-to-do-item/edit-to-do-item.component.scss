@@ -1,0 +1,32 @@
+.input-button {
+  display: flex;
+  justify-content: center;
+}
+
+#inputId {
+  height: 27px;
+  width: 200px;
+  padding-left: 7px;
+  border: 3px solid rgba(52, 131, 235, 0.3);
+  border-radius: 2px;
+  outline: none;
+  &:focus {
+    border: 3px solid rgba(10, 114, 250, 0.5);
+  }
+}
+
+.update-button {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(10, 114, 250);
+  width: 80px;
+  border: 0px;
+  border-radius: 0 3px 3px 0;
+  font-size: 11px;
+  &:hover {
+    background-color: rgb(162, 172, 184);
+  }
+  &:focus {
+    border: 3px solid rgba(10, 114, 250, 0.5);;
+  }
+}

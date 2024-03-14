@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
 import { ListComponent } from './list/list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { EditToDoItemComponent } from './edit-to-do-item/edit-to-do-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     ListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    EditToDoItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<div class="input-button">
+  <input [formControl]="inputField" id="inputId" type="text" placeholder="Update the item!">
+  <button
+    [disabled]="inputField.invalid"
+    (click)="updateInputValue()"
+    class="update-button"
+  >Update Todo</button>
+</div>
+
