@@ -8,22 +8,16 @@ import { InputComponent } from './input/input.component';
 import { ListComponent } from './list/list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { EditToDoItemComponent } from './edit-to-do-item/edit-to-do-item.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    InputComponent,
-    ListComponent,
-    TodoItemComponent,
-    EditToDoItemComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        InputComponent,
+        ListComponent,
+        TodoItemComponent,
+        EditToDoItemComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
