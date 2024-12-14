@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-input',
@@ -7,15 +8,20 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-  @Output() addToDo: EventEmitter<string> = new EventEmitter();
+  // @Output() addToDo: EventEmitter<string> = new EventEmitter();
 
   inputField: FormControl = new FormControl('', Validators.required);
+
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
   }
 
   extractInputValue(): void {
-    this.addToDo.emit(this.inputField.value);
+    // this.addToDo.emit(this.inputField.value);
+    // this.todoService.addTodo()
+    this.todoService.addTodo(this.inputField.value)
+      .subscribe(() => this.todoService.updateTodos());
     this.inputField?.setValue('');
   }
 }

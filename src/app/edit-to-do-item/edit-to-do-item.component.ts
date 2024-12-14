@@ -20,13 +20,13 @@ export class EditToDoItemComponent implements OnInit {
   inputField: FormControl = new FormControl('', Validators.required);
 
   ngOnInit(): void {
-    this.inputField.setValue(this.toDoItem?.text);
+    this.inputField.setValue(this.toDoItem?.title);
   }
 
   updateInputValue(): void {
     const updatedToDo: IToDoItem = {
       ...this.toDoItem,
-      text: this.inputField.value
+      title: this.inputField.value
     };
     // this.updateToDo.emit(this.inputField.value);
     // console.log(this.toDoItem.text);

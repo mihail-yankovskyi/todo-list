@@ -1,13 +1,12 @@
 <h1>Todo List</h1>
 
-<app-input *ngIf="showInput" (addToDo)="onAddToDo($event)"></app-input>
+<app-input *ngIf="showInput"></app-input>
 <app-edit-to-do-item
   *ngIf="!showInput"
   [toDoItem]="toDoItemToEdit"
   (onUpdateToDo)="updateToDo($event)"
 ></app-edit-to-do-item>
 <app-list
-  [toDoItems]="toDoTasks"
   (onDone)="done($event)"
   (onDelete)="deleteItem($event)"
   (onChange)="changeItem($event)"

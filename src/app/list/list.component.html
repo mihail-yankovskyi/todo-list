@@ -1,10 +1,9 @@
-<ul *ngFor="let toDoItem of toDoItems; index as i">
+<ul *ngFor="let toDoItem of (todos$ | async); index as i">
   <div style="display: inline-block;">
     <span>{{ i + 1 }}. </span>
     <todo-item style="display: inline-block;"
       [toDoItem]="toDoItem"
       (onDone)="done($event)"
-      (onDelete)="deleteItem($event)"
       (onChange)="changeItem($event)"
     ></todo-item>
   </div>

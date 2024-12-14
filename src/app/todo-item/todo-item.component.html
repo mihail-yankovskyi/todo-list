@@ -1,11 +1,11 @@
 <li class="content">
   <div class="input-value">
     <div>ID: {{toDoItem.id}}</div>
-    <div class="text-val" [class.doneFStyle]="toDoItem.isDone">{{toDoItem.text}}</div>
+    <div class="text-val" [class.doneFStyle]="toDoItem.isDone">{{toDoItem.title}}</div>
     <div class="buttons">
       <!-- [class.doneFStyle]="check" -->
       <div class="done button" (click)="done(toDoItem.id)">V</div>
-      <div class="delete button" (click)="deleteItem(toDoItem.id)">X</div>
+      <div class="delete button" (click)="deleteItem()">X</div>
       <div class="change button" (click)="changeItem()">Change</div>
     </div>
   </div>

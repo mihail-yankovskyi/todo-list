@@ -8,6 +8,7 @@ import { InputComponent } from './input/input.component';
 import { ListComponent } from './list/list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { EditToDoItemComponent } from './edit-to-do-item/edit-to-do-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditToDoItemComponent } from './edit-to-do-item/edit-to-do-item.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

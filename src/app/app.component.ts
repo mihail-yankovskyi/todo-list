@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IToDoItem } from './interfaces/IToDoItem';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   toDoTasks: IToDoItem[] = [];
   idForToDo: number = 0;
   showInput: boolean = true;
   toDoItemToEdit!: IToDoItem;
 
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit() {
+    this.getTodos();
+  }
+
+  getTodos(): void {
+    this.todoService.updateTodos();
+  }
+
   onAddToDo(input: string): void {
     this.idForToDo++;
-    this.toDoTasks.push({ id: this.idForToDo, text: input, isDone: false });
+    this.toDoTasks.push({ id: this.idForToDo, title: input, isDone: false });
 
     // console.log(this.toDoTasks);
   }
