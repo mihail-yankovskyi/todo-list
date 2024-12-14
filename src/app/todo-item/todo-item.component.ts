@@ -3,9 +3,10 @@ import { IToDoItem } from '../interfaces/IToDoItem';
 import { TodoService } from '../services/todo.service';
 
 @Component({
-  selector: 'todo-item',
-  templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss']
+    selector: 'todo-item',
+    templateUrl: './todo-item.component.html',
+    styleUrls: ['./todo-item.component.scss'],
+    standalone: false
 })
 export class TodoItemComponent {
   @Input() toDoItem!: IToDoItem;

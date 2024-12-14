@@ -3,9 +3,10 @@ import { FormControl, NgModel, Validators } from '@angular/forms';
 import { IToDoItem } from '../interfaces/IToDoItem';
 
 @Component({
-  selector: 'app-edit-to-do-item',
-  templateUrl: './edit-to-do-item.component.html',
-  styleUrls: ['./edit-to-do-item.component.scss']
+    selector: 'app-edit-to-do-item',
+    templateUrl: './edit-to-do-item.component.html',
+    styleUrls: ['./edit-to-do-item.component.scss'],
+    standalone: false
 })
 
 export class EditToDoItemComponent implements OnInit {

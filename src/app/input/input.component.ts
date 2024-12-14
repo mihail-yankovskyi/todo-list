@@ -3,9 +3,10 @@ import { FormControl, Validators } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    styleUrls: ['./input.component.scss'],
+    standalone: false
 })
 export class InputComponent implements OnInit {
   // @Output() addToDo: EventEmitter<string> = new EventEmitter();

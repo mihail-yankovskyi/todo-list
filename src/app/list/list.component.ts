@@ -4,9 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 import { TodoService } from '../services/todo.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class ListComponent {
   todos$: BehaviorSubject<IToDoItem[]> = this.todoService.todos$;
