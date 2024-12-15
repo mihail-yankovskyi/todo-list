@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { getTodosSuccess } from './todo.actions';
+import { addTodoSuccess, getTodosSuccess } from './todo.actions';
 import { ITodoState } from '../interfaces/todo-state.interface';
 
 export const initialState: ITodoState = {
-  todos: []
+  todos: [],
 };
 
 export const todoReducer = createReducer(
@@ -14,9 +14,10 @@ export const todoReducer = createReducer(
       todos: props.todos
     };
   }),
-  // on(addTodosSuccess, (state, props) => {
-  //   return {
-  //     ...state,
-  //     todos: props.todos
-  //   };
+  on(addTodoSuccess, (state, props) => {
+    return {
+      ...state,
+      todos: [...state.todos, props.todo]
+    };
+  })
 );

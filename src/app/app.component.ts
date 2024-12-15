@@ -20,10 +20,10 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getTodos();
+    this.getAllTodos();
   }
 
-  getTodos(): void {
+  getAllTodos(): void {
     this.store.dispatch(getTodos());
   }
 

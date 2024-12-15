@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
+import { Store } from '@ngrx/store';
+import { IState } from '../interfaces/state.interface';
+import { addTodo } from '../state/todo.actions';
 
 @Component({
     selector: 'app-input',
@@ -13,7 +16,7 @@ export class InputComponent implements OnInit {
 
   inputField: FormControl = new FormControl('', Validators.required);
 
-  constructor(private todoService: TodoService) {}
+  constructor(private store: Store<IState>) {}
 
   ngOnInit(): void {
   }
@@ -25,6 +28,10 @@ export class InputComponent implements OnInit {
     //   .subscribe(() => this.todoService.updateTodos());
 
     // this store dispatch new saveTodo
+
+    this.store.dispatch(addTodo({ title: this.inputField.value }));
+    //this.inputField.value
+
     this.inputField?.setValue('');
   }
 }
