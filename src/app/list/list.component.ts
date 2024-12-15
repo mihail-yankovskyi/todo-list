@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
-import { IToDoItem } from '../interfaces/IToDoItem';
+import { IToDoItem } from '../interfaces/todo-item.interface';
 import { BehaviorSubject } from 'rxjs';
 import { TodoService } from '../services/todo.service';
+import { Store } from '@ngrx/store';
+import { selectTodos } from '../state/todo.selectors';
+import { IState } from '../interfaces/state.interface';
 
 @Component({
     selector: 'app-list',
@@ -10,20 +13,22 @@ import { TodoService } from '../services/todo.service';
     standalone: false
 })
 export class ListComponent {
-  todos$: BehaviorSubject<IToDoItem[]> = this.todoService.todos$;
-  // @Input() toDoItems!: IToDoItem[];
-  // @Output
-  @Output() onDone: EventEmitter<number>  = new EventEmitter();
-  @Output() onDelete: EventEmitter<number>  = new EventEmitter();
-  @Output() onChange: EventEmitter<IToDoItem> = new EventEmitter();
+  todos$ = this.store.select(selectTodos);
 
-  constructor(private todoService: TodoService) {}
+  // @Output() onDone: EventEmitter<number>  = new EventEmitter();
+  // @Output() onDelete: EventEmitter<number>  = new EventEmitter();
+  // @Output() onChange: EventEmitter<IToDoItem> = new EventEmitter();
+  // store dispatch for all Outputs
+
+  constructor(
+    private store: Store<IState>
+  ) {}
 
   done(id: number) {
-    this.onDone.emit(id);
+    // this.onDone.emit(id);
   }
 
   changeItem(toDoItem: IToDoItem): void {
-    this.onChange.emit(toDoItem);
+    // this.onChange.emit(toDoItem);
   }
 }

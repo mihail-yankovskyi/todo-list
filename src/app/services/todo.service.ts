@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IToDoItem } from '../interfaces/IToDoItem';
+import { IToDoItem } from '../interfaces/todo-item.interface';
 
 const url = 'http://localhost:3000/api/todos';
 
@@ -9,16 +9,10 @@ const url = 'http://localhost:3000/api/todos';
   providedIn: 'root'
 })
 export class TodoService {
-  todos$: BehaviorSubject<IToDoItem[]> = new BehaviorSubject<IToDoItem[]>([]);
-
-  constructor(private http: HttpClient) {}
-  // State
-
-  updateTodos(): void {
-    this.getTodos().subscribe((todos) => this.todos$.next(todos));
+  addTodos() {
+    throw new Error('Method not implemented.');
   }
-
-  // Http
+  constructor(private http: HttpClient) {}
 
   getTodos(): Observable<IToDoItem[]> {
     // Возвращаем Observable, который выполнит запрос и вернёт данные

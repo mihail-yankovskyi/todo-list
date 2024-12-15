@@ -3,11 +3,11 @@
 <app-input *ngIf="showInput"></app-input>
 <app-edit-to-do-item
   *ngIf="!showInput"
-  [toDoItem]="toDoItemToEdit"
-  (onUpdateToDo)="updateToDo($event)"
 ></app-edit-to-do-item>
 <app-list
-  (onDone)="done($event)"
-  (onDelete)="deleteItem($event)"
-  (onChange)="changeItem($event)"
+
 ></app-list>
+
+<!-- (onDone)="done($event)"
+(onDelete)="deleteItem($event)"
+(onChange)="changeItem($event)" -->

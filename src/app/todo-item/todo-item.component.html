@@ -5,7 +5,7 @@
     <div class="buttons">
       <!-- [class.doneFStyle]="check" -->
       <div class="done button" (click)="done(toDoItem.id)">V</div>
-      <div class="delete button" (click)="deleteItem()">X</div>
+      <div class="delete button" (click)="deleteItem(toDoItem.id)">X</div>
       <div class="change button" (click)="changeItem()">Change</div>
     </div>
   </div>

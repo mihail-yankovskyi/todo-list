@@ -18,11 +18,13 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  extractInputValue(): void {
+  saveTodo(): void {
     // this.addToDo.emit(this.inputField.value);
     // this.todoService.addTodo()
-    this.todoService.addTodo(this.inputField.value)
-      .subscribe(() => this.todoService.updateTodos());
+    // this.todoService.addTodo(this.inputField.value)
+    //   .subscribe(() => this.todoService.updateTodos());
+
+    // this store dispatch new saveTodo
     this.inputField?.setValue('');
   }
 }

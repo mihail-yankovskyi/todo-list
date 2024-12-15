@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IToDoItem } from '../interfaces/IToDoItem';
+import { IToDoItem } from '../interfaces/todo-item.interface';
 import { TodoService } from '../services/todo.service';
 
 @Component({
@@ -15,8 +15,7 @@ export class TodoItemComponent {
 
   @Output() onDone: EventEmitter<number>  = new EventEmitter();
   @Output() onChange: EventEmitter<IToDoItem> = new EventEmitter();
-
-  constructor(private todoService: TodoService) {}
+  @Output() onDelete: EventEmitter<number> = new EventEmitter();
 
   done(id: number | undefined): void {
 
@@ -27,14 +26,12 @@ export class TodoItemComponent {
     this.onDone.emit(id);
   }
 
-  deleteItem(): void {
-    this.todoService.deleteTodo(this.toDoItem.id)
-      .subscribe(() => this.todoService.updateTodos());
+  deleteItem(id: number | undefined): void {
+    this.onDelete.emit(id);
   }
 
-  changeItem(): void {
+  changeItem() {
     this.onChange.emit(this.toDoItem);
     // console.log(this.toDoItem.id);
   }
-
 }
