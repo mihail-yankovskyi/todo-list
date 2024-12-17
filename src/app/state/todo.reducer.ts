@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addTodoSuccess, getTodosSuccess } from './todo.actions';
+import { addTodoSuccess, deleteTodoSuccess, getTodosSuccess } from './todo.actions';
 import { ITodoState } from '../interfaces/todo-state.interface';
 
 export const initialState: ITodoState = {
@@ -18,6 +18,12 @@ export const todoReducer = createReducer(
     return {
       ...state,
       todos: [...state.todos, props.todo]
+    };
+  }),
+  on(deleteTodoSuccess, (state, props) => {
+    return {
+      ...state,
+      todos: state.todos.filter(todo => todo.id !== props.id)
     };
   })
 );
