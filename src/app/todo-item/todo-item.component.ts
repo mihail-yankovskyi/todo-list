@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IToDoItem } from '../interfaces/todo-item.interface';
 import { TodoService } from '../services/todo.service';
+import { Store } from '@ngrx/store';
+import { IState } from '../interfaces/state.interface';
+import { deleteTodo, deleteTodoFailed } from '../state/todo.actions';
 
 @Component({
     selector: 'todo-item',
@@ -17,6 +20,8 @@ export class TodoItemComponent {
   @Output() onChange: EventEmitter<IToDoItem> = new EventEmitter();
   @Output() onDelete: EventEmitter<number> = new EventEmitter();
 
+  constructor(private store: Store<IState>) {}
+
   done(id: number | undefined): void {
 
 
@@ -26,8 +31,13 @@ export class TodoItemComponent {
     this.onDone.emit(id);
   }
 
-  deleteItem(id: number | undefined): void {
-    this.onDelete.emit(id);
+  deleteItem(id: number | undefined) {
+    // this.onDelete.emit(id);
+    if (id === undefined) {
+      this.store.dispatch(deleteTodoFailed());
+      return;
+    }
+    this.store.dispatch(deleteTodo({ id }));
   }
 
   changeItem() {
